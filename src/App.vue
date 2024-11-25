@@ -12,25 +12,25 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import FolderModal from './components/FolderModal.vue'
+import { ref } from 'vue';
+import FolderModal from './components/FolderModal.vue';
 
-const isModalOpen = ref(false)
-const selectedFolderId = ref<number | null>(null)
+const isModalOpen = ref(false);
+const selectedFolderId = ref<number | null>(null);
 
 const openModal = () => {
-  isModalOpen.value = true
-}
+  isModalOpen.value = true;
+};
 
 const closeModal = () => {
-  isModalOpen.value = false
-}
+  isModalOpen.value = false;
+};
 
 const handleSelect = (folderId: number) => {
-  console.log(`Выбранная папка ID: ${folderId}`)
-  selectedFolderId.value = folderId
-  isModalOpen.value = false
-}
+  console.log(`Выбранная папка ID: ${folderId}`);
+  selectedFolderId.value = folderId;
+  isModalOpen.value = false;
+};
 </script>
 
 <style scoped>

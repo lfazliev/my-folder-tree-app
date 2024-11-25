@@ -12,8 +12,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import FolderTree from './FolderTree.vue'
+import { ref } from 'vue';
+import FolderTree from './FolderTree.vue';
 
 // Mock-данные для дерева папок
 const folders = [
@@ -30,28 +30,28 @@ const folders = [
     ],
   },
   { id: 5, name: 'Папка 2', children: [] },
-]
+];
 
 const props = defineProps<{
-  title: string
-}>()
+  title: string;
+}>();
 
 const emit = defineEmits<{
-  (e: 'close'): void
-  (e: 'select', folderId: number): void
-}>()
+  (e: 'close'): void;
+  (e: 'select', folderId: number): void;
+}>();
 
-const selectedFolderId = ref<number | null>(null)
+const selectedFolderId = ref<number | null>(null);
 
 const handleOk = () => {
   if (selectedFolderId.value !== null) {
-    emit('select', selectedFolderId.value)
+    emit('select', selectedFolderId.value);
   }
-}
+};
 
 const close = () => {
-  emit('close')
-}
+  emit('close');
+};
 </script>
 
 <style scoped>

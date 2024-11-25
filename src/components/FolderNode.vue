@@ -20,36 +20,36 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import type { Folder } from '../types'
-import FolderNode from './FolderNode.vue'
+import { ref, computed } from 'vue';
+import type { Folder } from '../types';
+import FolderNode from './FolderNode.vue';
 
 const props = defineProps<{
-  folder: Folder
-  selectedFolderId: number | null
-}>()
+  folder: Folder;
+  selectedFolderId: number | null;
+}>();
 
 const emit = defineEmits<{
-  (e: 'update:selectedFolderId', id: number | null): void
-}>()
+  (e: 'update:selectedFolderId', id: number | null): void;
+}>();
 
-const isExpanded = ref(false)
+const isExpanded = ref(false);
 
-const hasChildren = computed(() => props.folder.children && props.folder.children.length > 0)
+const hasChildren = computed(() => props.folder.children && props.folder.children.length > 0);
 
 const toggle = () => {
-  isExpanded.value = !isExpanded.value
-}
+  isExpanded.value = !isExpanded.value;
+};
 
-const isSelected = computed(() => props.folder.id === props.selectedFolderId)
+const isSelected = computed(() => props.folder.id === props.selectedFolderId);
 
 const selectFolder = () => {
-  emit('update:selectedFolderId', props.folder.id)
-}
+  emit('update:selectedFolderId', props.folder.id);
+};
 
 const updateSelectedFolderId = (id: number | null) => {
-  emit('update:selectedFolderId', id)
-}
+  emit('update:selectedFolderId', id);
+};
 </script>
 
 <style scoped>
